@@ -57,5 +57,4 @@ if __name__ == '__main__':
     for hostname in HOSTNAMES:
         s = threading.Thread(target=ssh, args=(
             hostname, USERNAME, PASSWORD, CMD))
-        # ssh(hostname, USERNAME, PASSWORD, CMD)
         s.start()
