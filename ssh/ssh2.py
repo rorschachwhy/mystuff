@@ -5,8 +5,8 @@ import paramiko
 
 HOSTNAMES = (
     # t1
-    '58.68.148.50',
-    '58.68.148.51'
+    "58.68.148.50",
+    # "58.68.148.51",
     # "58.68.148.52",
     # "58.68.148.53",
     # t2
@@ -50,7 +50,7 @@ def ssh(ip, username, passwd, cmd):
         print('%s\tERROR\n' % ip)
 
 if __name__ == '__main__':
-    CMD = ['mkdir testwhy']
+    CMD = ['echo y | deployer -d -p marketing  -b 1 -t', 'rm -r testwhy']
     USERNAME = 'shbj'
     PASSWORD = 'shbj123'
     print("Begin....")
@@ -58,3 +58,4 @@ if __name__ == '__main__':
         s = threading.Thread(target=ssh, args=(
             hostname, USERNAME, PASSWORD, CMD))
         s.start()
+    var = input("Press any key to continue...")
