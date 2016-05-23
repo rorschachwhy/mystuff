@@ -50,7 +50,7 @@ def ssh(ip, username, passwd, cmd):
         print('%s\tERROR\n' % ip)
 
 if __name__ == '__main__':
-    CMD = ['echo y | deployer -d -p marketing  -b 1 -t', 'rm -r testwhy']
+    CMD = ['echo y | deployer --', '']
     USERNAME = 'shbj'
     PASSWORD = 'shbj123'
     print("Begin....")
