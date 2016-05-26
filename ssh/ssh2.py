@@ -50,10 +50,11 @@ def ssh(ip, username, passwd, cmd):
         print('%s\tERROR\n' % ip)
 
 if __name__ == '__main__':
-    CMD = ['mkdir test526', '']
+    CMD = ['rm -r test526', '']
     USERNAME = 'shbj'
     PASSWORD = 'shbj123'
     print("Begin....")
+    # env = input("Enter env")
     threads = []
     for hostname in hostnames.values():
         s = threading.Thread(target=ssh, args=(
