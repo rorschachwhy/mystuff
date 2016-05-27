@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import threading
-import paramiko
+import pexpect
 import re
 
 hostnames = {
@@ -59,8 +59,8 @@ if __name__ == '__main__':
     PASSWORD = 'shbj123'
     CMD = ['sudo /opt/shbj/utility/mysqlbk_backup', 'mkdir test52627']
 
-    print('''=========================执行非sudo命令=============================
-    1、输入要操作的环境号，支持模糊匹配，如输入t1即t102,t111,t112，输入t11即t111,t112
+    print('''=========================备份数据库=============================
+    1、输入要备份的环境号，支持模糊匹配，如输入t1即t102,t111,t112，输入t11即t111,t112
     2、输入 all 或者 t ，可以对所有环境操作
     3、可以同时输入多个环境号，如t1 t502 t312 ，使用空格分开
     ''')
