@@ -39,7 +39,7 @@ hostnames = {
 # 定义函数，功能是使用paramiko进行ssh连接
 
 
-def ssh(envnm, ip, username, passwd, cmd):
+def ssh(envnm, ip, username, passwd, cmd, fo, fe):
     try:
         myClent = paramiko.SSHClient()
         myClent.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -54,8 +54,10 @@ def ssh(envnm, ip, username, passwd, cmd):
         # 循环打印出输出和错误信息
         for o in out:
             print(o)
+            fo.write(o)
         for e in err:
             print(e)
+            fe.write(e)
         print('%s\t%s\tOK\n' % (envnm, ip))
         myClent.close()
     except:
@@ -74,6 +76,8 @@ if __name__ == '__main__':
             'echo y | deployer --start -p frontend',
             'echo y | deployer --start -p statistics',
             ]
+    fo = open('out.txt', 'w')
+    fe = open('err.txt', 'w')
     print('''=========================执行非sudo命令=============================
     1、输入要操作的环境号，支持模糊匹配，如输入t1即t1-02,t1-11,t1-12，
         输入11即t1-11,t2-11,t3-11,t4-11,t5-11,t6-11
@@ -100,12 +104,16 @@ if __name__ == '__main__':
         for cmd in cmds:
             #  print(cmd)
             s = threading.Thread(target=ssh, args=(
-                envset, hostnames[envset], USERNAME, PASSWORD, cmd))
+                envset, hostnames[envset], USERNAME, PASSWORD, cmd, fo, fe))
             threads.append(s)
 
     for t in threads:
         t.start()
     for t in threads:
         t.join()
+
+    fo.close()
+    fe.close()
+
     print('%s threads has been done.\n' % len(threads))
     var = input("Press any key to continue...")
