@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
-var = input("Please input env:\n")
-l = var.split()
-print(var, l)
+def fib(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        print(b)
+        a, b = b, a + b
+        n = n + 1
+    return 'done'
+for var in fib()
+    print("hh:" + var)

@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
 import threading
-import pexpect
+import paramiko
 import re
 
+# 所有的环境名称和域名，使用dict存储
 hostnames = {
     # t1
     # "t101": "58.68.148.50",
@@ -41,7 +42,7 @@ def ssh(envnm, ip, username, passwd, cmd):
         myClent.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         myClent.connect(ip, 22, username, passwd)
         for m in cmd:
-            stdin, stdout, stderr = myClent.exec_command(cmd)
+            stdin, stdout, stderr = myClent.exec_command(m)
             out = stdout.readlines()
             err = stderr.readlines()
             for o in out:
@@ -57,7 +58,7 @@ if __name__ == '__main__':
 
     USERNAME = 'shbj'
     PASSWORD = 'shbj123'
-    CMD = ['sudo /opt/shbj/utility/mysqlbk_backup', 'mkdir test52627']
+    CMD = ['/tmp/start_backup']
 
     print('''=========================备份数据库=============================
     1、输入要备份的环境号，支持模糊匹配，如输入t1即t102,t111,t112，输入t11即t111,t112

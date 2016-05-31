@@ -7,7 +7,7 @@ PASSWORD = 'shbj123'
 cmd = 'sudo /opt/shbj/utility/mysqlbk_backup'
 ip = '58.68.148.50'
 
-ssh = pexpect.spawn('ssh %s@%s "%s"' % (USERNAME, ip, cmd))
+ssh = pexpect.spawn('ssh %s@%s' % (USERNAME, ip))
 try:
     i = ssh.expect(['password:', 'continue connecting (yes/no)?'], timeout=5)
     if i == 0:
