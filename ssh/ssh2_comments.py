@@ -68,14 +68,22 @@ if __name__ == '__main__':
     USERNAME = 'shbj'
     PASSWORD = 'shbj123'
     # 定义命令
-    cmds = ['echo y | deployer --start -p web',
-            'echo y | deployer --start -p thirdparty',
-            'echo y | deployer --start -p bpm',
-            'echo y | deployer --start -p cas',
-            'echo y | deployer --start -p content',
-            'echo y | deployer --start -p delivery',
-            'echo y | deployer --start -p frontend',
-            'echo y | deployer --start -p statistics',
+    cmds = ['echo y |deployer -d -p delivery -b 595 -t',
+            'echo y |deployer -d -p content -b 61 -t',
+            'echo y |deployer -d -p frontend -b 84 -t',
+            'echo y |deployer -d -p bpm -b 146 -t',
+            'echo y |deployer -d -p cas -b 70 -t',
+            'echo y |deployer -d -p cds -b 32 -t',
+            'echo y |deployer -d -p statistics -b 62 -t',
+            'echo y |deployer -d -p web -b 76 -t',
+            # 'echo y | deployer --start -p web',
+            # 'echo y | deployer --start -p thirdparty',
+            # 'echo y | deployer --start -p bpm',
+            # 'echo y | deployer --start -p cas',
+            # 'echo y | deployer --start -p content',
+            # 'echo y | deployer --start -p delivery',
+            # 'echo y | deployer --start -p frontend',
+            # 'echo y | deployer --start -p statistics',
             ]
     # 以写方式打开文件；文件不存在会创建；文件存在会清空内容
     fo = open('out.txt', 'w')
