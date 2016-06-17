@@ -68,14 +68,14 @@ if __name__ == '__main__':
     USERNAME = 'shbj'
     PASSWORD = 'shbj123'
     # 定义命令
-    cmds = ['echo y |deployer -d -p delivery -b 595 -t',
-            'echo y |deployer -d -p content -b 61 -t',
-            'echo y |deployer -d -p frontend -b 84 -t',
-            'echo y |deployer -d -p bpm -b 146 -t',
-            'echo y |deployer -d -p cas -b 70 -t',
-            'echo y |deployer -d -p cds -b 32 -t',
-            'echo y |deployer -d -p statistics -b 62 -t',
-            'echo y |deployer -d -p web -b 76 -t',
+    cmds = ['echo y |deployer -d -p delivery -b 173 -o',
+            'echo y |deployer -d -p content -b 68 -o',
+            'echo y |deployer -d -p frontend -b 18 -o',
+            'echo y |deployer -d -p bpm -b 163 -o',
+            # 'echo y |deployer -d -p cas -b 70 -t',
+            'echo y |deployer -d -p cds -b 3 -o',
+            'echo y |deployer -d -p statistics -b 60 -o',
+            # 'echo y |deployer -d -p web -b 76 -t',
             # 'echo y | deployer --start -p web',
             # 'echo y | deployer --start -p thirdparty',
             # 'echo y | deployer --start -p bpm',
