@@ -6,33 +6,33 @@ import re
 
 # 所有的环境名称和域名，使用dict存储
 hostnames = {
-    # t-1
-    "t1-01": "58.68.148.50",
-    "t1-02": "58.68.148.51",
-    "t1-11": "58.68.148.52",
-    "t1-12": "58.68.148.53",
-    # t-2
-    "t2-01": "58.68.233.90",
-    "t2-02": "58.68.233.91",
-    "t2-11": "58.68.233.92",
-    "t2-12": "58.68.233.93",
-    # t-3
+    ## t-1
+    #"t1-01": "58.68.148.50",
+    #"t1-02": "58.68.148.51",
+    #"t1-11": "58.68.148.52",
+    #"t1-12": "58.68.148.53",
+    ## t-2
+    #"t2-01": "58.68.233.90",
+    #"t2-02": "58.68.233.91",
+    #"t2-11": "58.68.233.92",
+    #"t2-12": "58.68.233.93",
+    ## t-3
     "t3-01": "123.56.16.9",
     "t3-02": "123.56.16.14",
     "t3-11": "123.56.16.19",
     "t3-12": "123.56.16.24",
-    # t-4
-    "t4-01": "58.68.148.59",
-    "t4-02": "58.68.148.60",
-    "t4-11": "58.68.148.61",
-    # t-5
-    "t5-01": "58.68.224.154",
-    "t5-02": "58.68.224.155",
-    "t5-11": "58.68.224.156",
-    # t-6
-    "t6-01": "58.68.148.57",
-    "t6-02": "58.68.148.58",
-    "t6-11": "58.68.233.94",
+    ## t-4
+    #"t4-01": "58.68.148.59",
+    #"t4-02": "58.68.148.60",
+    #"t4-11": "58.68.148.61",
+    ## t-5
+    #"t5-01": "58.68.224.154",
+    #"t5-02": "58.68.224.155",
+    #"t5-11": "58.68.224.156",
+    ## t-6
+    #"t6-01": "58.68.148.57",
+    #"t6-02": "58.68.148.58",
+    #"t6-11": "58.68.233.94",
 }
 
 
@@ -68,15 +68,15 @@ if __name__ == '__main__':
     USERNAME = 'shbj'
     PASSWORD = 'shbj123'
     # 定义命令
-    cmds = [  'echo y |deployer -d -p delivery -b 356 -t',
-              'echo y |deployer -d -p content -b 58 -t',
-              'echo y |deployer -d -p frontend -b 309 -t',
-              'echo y |deployer -d -p bpm -b 137 -t',
-             # 'echo y |deployer -d -p cas -b 70 -t',
-              'echo y |deployer -d -p cds -b 127 -t',
-              'echo y |deployer -d -p statistics -b 58 -t',
-             # 'echo y |deployer -d -p thirdparty -b 11 -t'
-              'echo y |deployer -d -p web -b 33 -t',
+    cmds = [  'echo y |deployer -d -p delivery -b 187 -o',
+              'echo y |deployer -d -p content -b 76 -o',
+              'echo y |deployer -d -p frontend -b 31 -o',
+              'echo y |deployer -d -p bpm -b 171 -o',
+             # 'echo y |deployer -d -p cas -b 70 -o',
+              'echo y |deployer -d -p cds -b 17 -o',
+              'echo y |deployer -d -p statistics -b 68 -o',
+             # 'echo y |deployer -d -p thirdparty -b 11 -o'
+              'echo y |deployer -d -p web -b 86 -o',
             # 'echo y |deployer -d -p rop -b 93 -t',
             # 'echo y | deployer --start -p web',
             # 'echo y | deployer --start -p thirdparty',

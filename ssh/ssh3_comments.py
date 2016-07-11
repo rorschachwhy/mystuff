@@ -68,15 +68,15 @@ if __name__ == '__main__':
     USERNAME = 'shbj'
     PASSWORD = 'shbj123'
     # 定义命令
-    cmds = [  'echo y |deployer -d -p delivery -b 356 -t',
-              'echo y |deployer -d -p content -b 58 -t',
-              'echo y |deployer -d -p frontend -b 309 -t',
-              'echo y |deployer -d -p bpm -b 137 -t',
-             # 'echo y |deployer -d -p cas -b 70 -t',
-              'echo y |deployer -d -p cds -b 127 -t',
-              'echo y |deployer -d -p statistics -b 58 -t',
-             # 'echo y |deployer -d -p thirdparty -b 11 -t'
-              'echo y |deployer -d -p web -b 33 -t',
+    cmds = ['echo y |deployer -d -p delivery -b 178 -o',
+            'echo y |deployer -d -p content -b 71 -o',
+            'echo y |deployer -d -p frontend -b 21 -o',
+            'echo y |deployer -d -p bpm -b 165 -o',
+            'echo y |deployer -d -p cas -b 70 -o',
+            'echo y |deployer -d -p cds -b 9 -o',
+            'echo y |deployer -d -p statistics -b 63 -o',
+            'echo y |deployer -d -p thirdparty -b 11 -o'
+            # 'echo y |deployer -d -p web -b 85 -o',
             # 'echo y |deployer -d -p rop -b 93 -t',
             # 'echo y | deployer --start -p web',
             # 'echo y | deployer --start -p thirdparty',
