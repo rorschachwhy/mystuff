@@ -17,10 +17,10 @@ hostnames = {
     "t2-11": "58.68.233.92",
     "t2-12": "58.68.233.93",
     # t-3
-    "t3-01": "123.56.16.9",
-    "t3-02": "123.56.16.14",
-    "t3-11": "123.56.16.19",
-    "t3-12": "123.56.16.24",
+    # "t3-01": "123.56.16.9",
+    # "t3-02": "123.56.16.14",
+    # "t3-11": "123.56.16.19",
+    # "t3-12": "123.56.16.24",
     # t-4
     "t4-01": "58.68.148.59",
     "t4-02": "58.68.148.60",
@@ -69,15 +69,16 @@ if __name__ == '__main__':
     PASSWORD = 'shbj123'
     # 定义命令
     cmds = [ # 'echo y |deployer -d -p delivery -b 356 -t',
-             # 'echo y |deployer -d -p content -b 58 -t',
+              'echo y |deployer -d -p content -b 69 -t',
              # 'echo y |deployer -d -p frontend -b 309 -t',
-             # 'echo y |deployer -d -p bpm -b 137 -t',
-             # 'echo y |deployer -d -p cas -b 70 -t',
-             # 'echo y |deployer -d -p cds -b 127 -t',
-             # 'echo y |deployer -d -p statistics -b 58 -t',
+              'echo y |deployer -d -p bpm -b 156 -t',
+              'echo y |deployer -d -p cas -b 23 -t',
+              'echo y |deployer -d -p cds -b 159 -t',
+              'echo y |deployer -d -p statistics -b 65 -t',
              # 'echo y |deployer -d -p thirdparty -b 11 -t'
              # 'echo y |deployer -d -p web -b 33 -t',
-             'echo y |deployer -d -p rop -b 118 -t',
+             # 'echo y |deployer -d -p monitor -b 1 -t',
+             # 'echo y |deployer -d -p rop -b 118 -t',
             # 'echo y | deployer --start -p web',
             # 'echo y | deployer --start -p thirdparty',
             # 'echo y | deployer --start -p bpm',
