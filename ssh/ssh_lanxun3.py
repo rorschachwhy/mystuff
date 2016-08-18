@@ -2,7 +2,7 @@
 
 import threading
 import paramiko
-import reS
+import re
 
 txt = r'lanxunDeployer.txt'
 # 所有的环境名称和域名，使用dict存储
