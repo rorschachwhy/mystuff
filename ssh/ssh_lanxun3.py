@@ -143,7 +143,7 @@ if __name__ == '__main__':
                     # print(i)
                     if(i):
                         cmd = 'echo y |deployer -d -p ' + \
-                            args[0] + ' -b ' + args[1] + ' -o'
+                            args[0] + ' -b ' + args[1] + ' -t'
         # for cmd in cmds:
             #  每一条命令都建立一个线程
                         s = threading.Thread(target=ssh, args=(
