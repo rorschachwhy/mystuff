@@ -2,8 +2,9 @@
 
 import threading
 import paramiko
-import re
+import reS
 
+txt = r'lanxunDeployer.txt'
 # 所有的环境名称和域名，使用dict存储
 hostnames = {
     # t-1
@@ -55,39 +56,41 @@ def ssh(envnm, ip, username, passwd, cmd, fo, fe):
         for o in out:
             print(o)
             fo.write(o)
+            fo.flush()
         for e in err:
             print(e)
             fe.write(e)
+            fe.flush()
         print('%s\t%s\tOK\n' % (envnm, ip))
         myClent.close()
-    except:
-        print('%s\t%s\tERROR\n' % (envnm, ip))
+    except Exception as e:
+        print('%s\t%s\tERROR\n' % (envnm, ip), e)
 
 if __name__ == '__main__':
 
     USERNAME = 'shbj'
     PASSWORD = 'shbj123'
     # 定义命令
-    cmds = [ # 'echo y |deployer -d -p delivery -b 356 -t',
-              'echo y |deployer -d -p content -b 69 -t',
-             # 'echo y |deployer -d -p frontend -b 309 -t',
-              'echo y |deployer -d -p bpm -b 156 -t',
-              'echo y |deployer -d -p cas -b 23 -t',
-              'echo y |deployer -d -p cds -b 159 -t',
-              'echo y |deployer -d -p statistics -b 65 -t',
-             # 'echo y |deployer -d -p thirdparty -b 11 -t'
-             # 'echo y |deployer -d -p web -b 33 -t',
-             # 'echo y |deployer -d -p monitor -b 1 -t',
-             # 'echo y |deployer -d -p rop -b 118 -t',
-            # 'echo y | deployer --start -p web',
-            # 'echo y | deployer --start -p thirdparty',
-            # 'echo y | deployer --start -p bpm',
-            # 'echo y | deployer --start -p cas',
-            # 'echo y | deployer --start -p content',
-            # 'echo y | deployer --start -p delivery',
-            # 'echo y | deployer --start -p frontend',
-            # 'echo y | deployer --start -p statistics',
-            ]
+    # cmds = [  # 'echo y |deployer -d -p delivery -b 356 -t',
+    #    'echo y |deployer -d -p content -b 69 -t',
+    #    # 'echo y |deployer -d -p frontend -b 309 -t',
+    #          'echo y |deployer -d -p bpm -b 156 -t',
+    #          'echo y |deployer -d -p cas -b 23 -t',
+    #          'echo y |deployer -d -p cds -b 159 -t',
+    #          'echo y |deployer -d -p statistics -b 65 -t',
+    #    # 'echo y |deployer -d -p thirdparty -b 11 -t'
+    #    # 'echo y |deployer -d -p web -b 33 -t',
+    #    # 'echo y |deployer -d -p monitor -b 1 -t',
+    #    # 'echo y |deployer -d -p rop -b 118 -t',
+    #    # 'echo y | deployer --start -p web',
+    #    # 'echo y | deployer --start -p thirdparty',
+    #    # 'echo y | deployer --start -p bpm',
+    #    # 'echo y | deployer --start -p cas',
+    #    # 'echo y | deployer --start -p content',
+    #    # 'echo y | deployer --start -p delivery',
+    #    # 'echo y | deployer --start -p frontend',
+    #    # 'echo y | deployer --start -p statistics',
+    #]
     # 以写方式打开文件；文件不存在会创建；文件存在会清空内容
     fo = open('out.txt', 'w')
     fe = open('err.txt', 'w')
@@ -119,19 +122,41 @@ if __name__ == '__main__':
     cmd_threads = []
     # 遍历集合
     for envset in envsets:
-        print(envset)
+        # print(envset)
         # 遍历命令
-        for cmd in cmds:
+        envsetsp = envset.split('-')
+        with open(txt, 'r') as f:
+            for line in f.readlines():
+                item = line.strip()  # 把末尾的'\n'删掉
+                args = item.split()
+                # print(args[0], args[1])
+                # print(envsetsp[0], envsetsp[1])
+                try:
+                    if envsetsp[1] in ['01'] and args[0] in ['bpm', 'statistics', 'monitor', 'content']:
+                        i = True
+                    elif envsetsp[1] in ['11'] and args[0] in ['cas', 'cds', 'delivery', 'hop', 'web', 'thirdparty', 'frontend']:
+                        i = True
+                    elif envsetsp[1] in ['02', '12'] and args[0] in ['rop']:
+                        i = True
+                    else:
+                        i = False
+                    # print(i)
+                    if(i):
+                        cmd = 'echo y |deployer -d -p ' + \
+                            args[0] + ' -b ' + args[1] + ' -o'
+        # for cmd in cmds:
             #  每一条命令都建立一个线程
-            s = threading.Thread(target=ssh, args=(
-                envset, hostnames[envset], USERNAME, PASSWORD, cmd, fo, fe))
+                        s = threading.Thread(target=ssh, args=(
+                            envset, hostnames[envset], USERNAME, PASSWORD, cmd, fo, fe))
             # 把每个线程加入线程池
-            cmd_threads.append(s)
-            s.start()
+                        cmd_threads.append(s)
+                except Exception as e:
+                    print(e)
+            #    s.start()
 
     # 遍历线程池，启动线程
-    # for t in cmd_threads:
-    #    t.start()
+    for t in cmd_threads:
+        t.start()
 
     # 等待子线程全部执行完毕，主线程在执行
     for t in cmd_threads:
