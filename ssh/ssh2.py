@@ -66,7 +66,7 @@ def ssh(envnm, ip, username, passwd, cmd, fo, fe):
 if __name__ == '__main__':
 
     USERNAME = 'shbj'
-    PASSWORD = 'shbj123'
+    PASSWORD = 'XXXX'
     cmds = ['echo y | deployer --start -p web',
             'echo y | deployer --start -p thirdparty',
             'echo y | deployer --start -p bpm',

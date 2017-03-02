@@ -66,7 +66,7 @@ def ssh(envnm, ip, username, passwd, cmd, fo, fe):
 if __name__ == '__main__':
 
     USERNAME = 'shbj'
-    PASSWORD = 'shbj123'
+    PASSWORD = 'XXXX'
     # 定义命令
     cmds = [  'echo y |deployer -d -p delivery -b 356 -t',
               'echo y |deployer -d -p content -b 58 -t',

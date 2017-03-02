@@ -57,7 +57,7 @@ def ssh(envnm, ip, username, passwd, cmd):
 if __name__ == '__main__':
 
     USERNAME = 'shbj'
-    PASSWORD = 'shbj123'
+    PASSWORD = 'XXXX'
     CMD = ['/tmp/start_backup']
 
     print('''=========================备份数据库=============================

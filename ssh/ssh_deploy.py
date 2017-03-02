@@ -56,7 +56,7 @@ def ssh(envnm, ip, username, passwd, cmd):
 if __name__ == '__main__':
 
     USERNAME = 'shbj'
-    PASSWORD = 'shbj123'
+    PASSWORD = 'XXXX'
     CMD = ['sudo /opt/shbj/utility/mysqlbk_backup', 'mkdir test52627']
 
     print('''=========================备份数据库=============================

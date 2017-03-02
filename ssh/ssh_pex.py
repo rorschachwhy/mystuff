@@ -3,7 +3,7 @@
 import pexpect
 
 USERNAME = 'shbj'
-PASSWORD = 'shbj123'
+PASSWORD = 'XXXX'
 cmd = 'sudo /opt/shbj/utility/mysqlbk_backup'
 ip = '58.68.148.50'
 
