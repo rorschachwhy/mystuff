@@ -11,4 +11,3 @@ x, y = symbols('x, y')
 print(solve(x * 2 - 4, x))
 
 print(solve([2 * x - y - 3, 3 * x + y - 7], [x, y]))
-
