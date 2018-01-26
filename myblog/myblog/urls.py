@@ -20,7 +20,7 @@ import blog2.views as b2v
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^blog/', include('blog.urls')),
+    url(r'^blog/', include('blog.urls', namespace='blog')),
     url(r'^blog2/$', b2v.index),
     url(r'^blog3/', include('blog3.urls')),
 ]
