@@ -22,6 +22,10 @@ public class Combinations {
 		if (data.isEmpty()) {
 			return;
 		}
+		
+		if (data.size() < n) {
+			return;
+		}
 
 		// select element 0
 		selected.add(data.get(0));
